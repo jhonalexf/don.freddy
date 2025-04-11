@@ -1,0 +1,993 @@
+/* --- Sección General / Layout --- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f9fa;
+    color: #333;
+}
+
+
+
+
+/* --- Navbar --- */
+.navbar {
+    background-color: #718aa3;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+    transform: scale(1.1);
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background-color: #131f25;
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-links li a:hover::after {
+    width: 100%;
+}
+
+.logo-img {
+    height: 90px;
+}
+
+
+
+
+
+
+/* --- Redes sociales --- */
+.iconos-redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.iconos-redes a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s ease;
+}
+
+.iconos-redes a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.iconos-redes a:hover {
+    transform: scale(1.2);
+}
+
+.redes-ubicacion {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/* SECCIÓN UBICACIÓN COMPLETA CENTRADA Y AGRANDADA */
+
+.ubicacion-contacto {
+    background-color: #f9fcfd;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.ubicacion-contacto .contenedor-ubicacion {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.titulo-ubicacion {
+    font-size: 3rem;
+    color: #1b384b;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.mapa-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mapa {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+    border-radius: 16px;
+}
+
+/* Texto y datos de dirección, referencia, horario */
+.datos-ubicacion {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+.datos-ubicacion p {
+    margin-bottom: 1rem;
+}
+
+/* Botón WhatsApp centrado */
+.boton-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    background-color: #25D366;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+    justify-content: center;
+}
+
+.boton-whatsapp:hover {
+    background-color: #128c7e;
+}
+
+.boton-whatsapp img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Redes sociales centradas y con efecto */
+.redes-ubicacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.redes-ubicacion a {
+    display: inline-block;
+}
+
+.redes-ubicacion a img {
+    width: 45px;
+    height: 45px;
+    transition: transform 0.2s ease;
+}
+
+.redes-ubicacion a:hover img {
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+/* Barra flotante al hacer scroll */
+#barra-flotante {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1c4b5a;
+    color: white;
+    z-index: 999;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+#barra-flotante.mostrar {
+    transform: translateY(0);
+}
+
+.barra-flotante-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barra-flotante-contenido ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.barra-flotante-contenido a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.barra-flotante-contenido a:hover {
+    color:#131f25;
+}
+
+.logo-flotante {
+    height: 40px;
+}
+
+.barra-scroll {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #718aa3;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 9999;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+}
+
+.barra-scroll.visible {
+    transform: translateY(0);
+}
+
+
+.contenedor-barra-scroll {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 1.2rem;
+}
+
+.logo-scroll {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: #e0e3e6;
+}
+
+.logo-scroll img {
+    height: 40px;
+}
+
+.menu-scroll a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #fff; /* blanco */
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.menu-scroll a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background-color:#131f25; /* igual al navbar principal */
+    transition: width 0.3s ease;
+}
+
+.menu-scroll a:hover::after {
+    width: 100%;
+}
+
+.menu-scroll a:hover {
+    color: #fff; /* mantener blanco al hacer hover */
+}
+
+
+
+
+/* --- Barra Superior --- */
+.barra-top {
+    background-color: #1c4b5a;
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barra-top div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+
+
+
+/* --- Iconos sociales --- */
+.nav-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding: 2rem 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f9fcfd;
+}
+
+.nav-icons a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.9rem;
+    min-width: 80px;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    padding: 0.5rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-icons a img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.nav-icons a:hover {
+    transform: scale(1.1);
+    color: #111010;
+}
+
+.nav-icons::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+/* --- Hero / Inicio --- */
+.inicio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 90px;
+    background: linear-gradient(to bottom, #e4f1f7, #ffffff);
+    min-height: 40vh;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1ch;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.inicio .contenido {
+    max-width: 700px;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    flex: 1 1 300px;
+    transition: transform 0.3s ease;
+}
+
+.inicio .contenido h2 {
+    font-size: 3em;
+    color: #1b384b;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 20px 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.boton-menu,
+.boton-principal {
+    display: inline-block;
+    background-color: #718aa3;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 800px;
+    transition: background 0.3s;
+}
+
+.boton-menu:hover,
+.boton-principal:hover {
+    background-color: #111213;
+}
+
+
+
+
+
+
+/* --- Imagen de Inicio --- */
+.imagen-deco img {
+    width: 800px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+/* --- Beneficios --- */
+.beneficios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    margin-top: 3rem;
+    background-color: #f4f9fb;
+    border-radius: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.beneficio {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 340px;
+    flex: 1 1 300px;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.beneficio:hover {
+    transform: translateY(-5px);
+}
+
+.beneficio img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.beneficio p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+}
+
+
+
+
+
+
+
+/* --- Productos --- */
+.productos h1 {
+    font-size: 2.5rem;
+    color: #023047;
+    margin-bottom: 2rem;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-producto img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-producto img:hover {
+    transform: scale(1.05);
+}
+
+.card-producto h2 {
+    font-size: 1.4rem;
+    margin: 0.8rem 0 0.3rem;
+    color: #0077b6;
+}
+
+.card-producto p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.precio {
+    display: inline-block;
+    background-color: #0077b6;
+    color: white;
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    margin-bottom: 40px;
+}
+
+
+
+
+
+
+
+/* --- Botones Generales --- */
+button {
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #023e8a;
+}
+
+
+
+
+
+/* --- Contacto --- */
+.contacto {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.contacto h1 {
+    font-size: 2rem;
+    color: #204060;
+    margin-bottom: 0.5rem;
+}
+
+.contacto p {
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.contacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contacto label {
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+}
+
+.contacto input,
+.contacto textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contacto button {
+    background-color: #336699;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contacto button:hover {
+    background-color: #204060;
+}
+
+
+
+.seccion-contacto {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f9fcfd;
+  }
+  
+  .titulo-contacto {
+    font-size: 2.5rem;
+    color: #1b384b;
+    margin-bottom: 1rem;
+  }
+  
+  .descripcion-contacto {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 3rem;
+  }
+  
+  .contacto-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .contacto-item {
+    flex: 1 1 220px;
+    max-width: 240px;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .contacto-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .contacto-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+  
+  .contacto-item h3 {
+    font-size: 1.2rem;
+    color: #1e6091;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contacto-item p {
+    color: #333;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  
+
+
+
+.atencion-cliente {
+    background-color: #ffffff;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.mapa-container iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.atencion-texto h2 {
+    font-size: 2rem;
+    color: #1b384b;
+    margin-bottom: 1rem;
+}
+
+.atencion-texto p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0.3rem 0;
+}
+
+.boton-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    background-color: #25D366;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.boton-whatsapp:hover {
+    background-color: #128c7e;
+}
+
+.boton-whatsapp img {
+    width: 20px;
+    height: 20px;
+}
+
+.iconos-redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.iconos-redes a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.iconos-redes a img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+/* --- Footer --- */
+.iconos-top a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.iconos-top img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+
+
+
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        order: 1;
+        margin-bottom: 1rem;
+        justify-content: center;
+    }
+
+    .nav-links {
+        order: 2;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .imagen-deco img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .inicio {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+/* --- Sección Conócenos estilo Ghirardelli --- */
+.sobre-nosotros {
+    background-color: #718aa3;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .contenido-sobre-nosotros {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background-color:#edf5f5;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  }
+  
+  .texto-sobre-nosotros {
+    color: rgb(27, 27, 27);
+    flex: 1;
+    text-align: justify;
+  }
+  
+  .texto-sobre-nosotros h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .texto-sobre-nosotros p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .boton-historia {
+    display: inline-block;
+    background-color: #fcd277;
+    color: #333;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 1rem;
+  }
+  
+  .logo-sobre-nosotros img {
+    max-width: 250px;
+    height: auto;
+  }
+  
+
+  footer {
+    text-align: center;
+    color: #ffffff; /* blanco o el que desees */
+    background-color: #718aa3; /* azul oscuro compatible con tu paleta */
+    padding: 2px 0;
+    font-size: 12px;
+  }
+  
+
+
+  .mensaje-compra {
+    background-color: #fff;
+    color: #222;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.boton-whatsapp {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.oculto {
+    display: none;
+}
+
+.mensaje-pagos {
+    background-color: #fff;
+    color: #222;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.mensaje-dinamico {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #f4fbff;
+    border-radius: 14px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    padding: 25px 30px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+    display: none;
+  }
+  .mensaje-dinamico.visible {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+  }
+  .boton-whatsapp {
+    background: #25d366;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 12px;
+    transition: background 0.3s ease;
+  }
+  .boton-whatsapp:hover {
+    background: #1ebe5d;
+  }
