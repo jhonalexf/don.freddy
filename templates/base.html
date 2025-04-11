@@ -18,6 +18,23 @@
   </div>
 </div>
 
+<!-- Barra que aparece al hacer scroll -->
+<div id="barraScroll" class="barra-scroll">
+  <div class="contenedor-barra-scroll">
+    <a href="{{ url_for('index') }}" class="logo-scroll">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Don Freddy">
+      <span>Don Freddy</span>
+    </a>
+    <div class="menu-scroll">
+      <a href="{{ url_for('index') }}">Inicio</a>
+      <a href="{{ url_for('conocenos') }}">Conócenos</a>
+      <a href="{{ url_for('productos') }}">Productos</a>
+      <a href="{{ url_for('contact') }}">Comunicate</a>
+    </div>
+  </div>
+</div>
+
+
 <!-- Header -->
 <header>
   <nav class="navbar">

@@ -2,7 +2,7 @@ let lastScrollTop = 0;
 const barra = document.getElementById('barra-flotante');
 
 window.addEventListener("scroll", function () {
-    const barra = document.querySelector(".navbar");
+    const barra = document.getElementById("barraScroll");
     if (window.scrollY > 100) {
         barra.classList.add("visible");
     } else {
