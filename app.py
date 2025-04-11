@@ -3,19 +3,17 @@ from flask_mail import Mail, Message
 import os
 
 app = Flask(
-    __name__,
-    template_folder=os.path.join(os.path.dirname(__file__), '..', 'templates'),
-    static_folder=os.path.join(os.path.dirname(__file__), '..', 'static')
+    
 )
 
 app.secret_key = 'clave-secreta-123'
 
 # Configuración del correo
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Cambia si usas Outlook/Hotmail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'jhonalexliga12@gmail.com'  # TU CORREO
-app.config['MAIL_PASSWORD'] = 'opalxluspdfuinqg'  # TU CONTRASEÑA DE APP
+app.config['MAIL_USERNAME'] = 'jhonalexliga12@gmail.com'
+app.config['MAIL_PASSWORD'] = 'opalxluspdfuinqg'
 app.config['MAIL_DEFAULT_SENDER'] = 'jhonalexliga12@gmail.com'
 
 mail = Mail(app)
@@ -60,7 +58,7 @@ def contact():
         {mensaje}
         """
 
-        msg = Message("Nuevo mensaje de contacto", recipients=['jhonalexliga12@gmail.com'])  # CORREGIDO
+        msg = Message("Nuevo mensaje de contacto", recipients=['jhonalexliga12@gmail.com'])
         msg.body = cuerpo
 
         try:
@@ -73,6 +71,3 @@ def contact():
         return redirect('/contact')
 
     return render_template('contact.html', nombre_cafeteria="Don Freddy")
-
-if __name__ == '__main__':
-    app.run(debug=True, port=8080)
