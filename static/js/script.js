@@ -11,24 +11,51 @@ window.addEventListener("scroll", function () {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const iconoCompra = document.getElementById('compra-segura-icon');
-    const mensajeCompra = document.getElementById('mensaje-compra-segura');
-    const iconoPagos = document.getElementById('pagos-icon');
-    const mensajePagos = document.getElementById('mensaje-pagos');
+    function mostrarMensaje(id, texto) {
+        // Revisar si ya existe el mensaje y eliminarlo
+        const existente = document.querySelector('.mensaje-dinamico');
+        if (existente) {
+            existente.remove();
+        }
 
-    if (iconoCompra && mensajeCompra) {
+        // Crear el mensaje
+        const mensaje = document.createElement('div');
+        mensaje.className = 'mensaje-dinamico visible';
+        mensaje.innerText = texto;
+
+        // Insertar el mensaje en el contenedor
+        const contenedor = document.getElementById('mensaje-dinamico-container');
+        contenedor.appendChild(mensaje);
+
+        // Desaparecer después de 3 segundos
+        setTimeout(() => {
+            mensaje.classList.remove('visible');
+            setTimeout(() => mensaje.remove(), 500); // animación
+        }, 3000);
+    }
+
+    const iconoCompra = document.getElementById('icono-compra');
+    const iconoPagos = document.getElementById('icono-pagos');
+    const iconoWhatsapp = document.getElementById('icono-whatsapp');
+
+    if (iconoCompra) {
         iconoCompra.addEventListener('click', (e) => {
             e.preventDefault();
-            mensajeCompra.classList.toggle('oculto');
+            mostrarMensaje('compra', '🔒 Compra segura garantizada con políticas de protección al cliente.');
         });
     }
 
-    if (iconoPagos && mensajePagos) {
+    if (iconoPagos) {
         iconoPagos.addEventListener('click', (e) => {
             e.preventDefault();
-            mensajePagos.classList.toggle('oculto');
+            mostrarMensaje('pagos', '💳 Aceptamos pagos por transferencia y en efectivo al recibir el pedido.');
+        });
+    }
+
+    if (iconoWhatsapp) {
+        iconoWhatsapp.addEventListener('click', (e) => {
+            e.preventDefault();
+            mostrarMensaje('whatsapp', '📲 Escríbenos directo a WhatsApp para hacer tu pedido.');
         });
     }
 });
-
-  

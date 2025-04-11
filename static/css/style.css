@@ -960,23 +960,23 @@ button:hover {
 }
 
 .mensaje-dinamico {
-    max-width: 800px;
-    margin: 30px auto;
     background: #f4fbff;
-    border-radius: 14px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    padding: 25px 30px;
+    padding: 1rem 2rem;
+    margin: 1rem auto;
+    max-width: 700px;
+    border-radius: 12px;
     text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
     opacity: 0;
     transform: translateY(-20px);
-    transition: all 0.4s ease;
-    display: none;
-  }
-  .mensaje-dinamico.visible {
+}
+
+.mensaje-dinamico.visible {
     opacity: 1;
     transform: translateY(0);
-    display: block;
-  }
+}
+
   .boton-whatsapp {
     background: #25d366;
     color: white;
