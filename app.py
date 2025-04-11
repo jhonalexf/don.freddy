@@ -2,11 +2,7 @@ fimport os
 from flask import Flask, render_template, request, redirect, flash, url_for
 from flask_mail import Mail, Message
 
-app = Flask(
-    __name__,
-    template_folder=os.path.join(os.path.dirname(__file__), '..', 'templates'),
-    static_folder=os.path.join(os.path.dirname(__file__), '..', 'static')
-)
+app = Flask(__name__)
 
 
 app.secret_key = 'clave-secreta-123'

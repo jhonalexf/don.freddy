@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="sobre-nosotros">
+    <div class="contenido-sobre-nosotros">
+      <div class="texto-sobre-nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>En <strong>Don Freddy</strong>, nos dedicamos con pasión a llevar los mejores sabores del mar directamente a tu mesa. Nuestra experiencia y compromiso con la excelencia nos permiten ofrecer productos de alta calidad que destacan por su frescura y sabor inigualable. Desde nuestros inicios, trabajamos con esmero para convertirnos en el referente de confianza para quienes valoran el auténtico sabor del mar.</p>
+        <p>Te invitamos a descubrir por qué Don Freddy es la elección preferida de los verdaderos amantes de los mariscos.</p>
+
+      </div>
+      <div class="logo-sobre-nosotros">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Don Freddy">
+      </div>
+    </div>
+  </section>
+  
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="inicio">
+
+  <div class="imagen-deco">
+    <img src="{{ url_for('static', filename='images/mariscos_combinados.jpg') }}" alt="Postre" />
+  </div>
+
+  <div class="contenido">
+    <h2>El mejor marisco a tu disposición</h2>
+    <h3>Al mejor precio y en la puerta de tu casa.</h3>
+    <a href="{{ url_for('productos') }}" class="boton-menu">Ver productos</a>
+  </div>
+
+</section>
+<section class="beneficios">
+    <div class="beneficio">
+        <img src="{{ url_for('static', filename='images/pago.png') }}" alt="Pago" />
+        <p>Pagos en: Efectivo o Transferencia bancaria </p>
+    </div>
+    <div class="beneficio">
+        <img src="{{ url_for('static', filename='images/reloj.png') }}" alt="Entrega" />
+        <p>Entregamos tus pedidos el mismo dia si estas ubicado en Quito(Ecuador)</p>
+    </div>
+    <div class="beneficio">
+        <img src="{{ url_for('static', filename='images/descuento.png') }}" alt="Ahorro" />
+        <p>Más económico que comprar en el supermercado </p>
+    </div>
+    <div class="beneficio">
+        <img src="{{ url_for('static', filename='images/envio.png') }}" alt="Envío" />
+        <p>Envíos desde $2,50 a Quito y los Valles</p>
+    </div>
+    <div class="beneficio">
+        <img src="{{ url_for('static', filename='images/calidad.png') }}" alt="Calidad" />
+        <p>Seleccionamos productos de calidad premium</p>
+  
+      </div>
+</section>
+
+{% endblock %}

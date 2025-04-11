@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="productos">
+    
+
+    <ol><h1>Nuestros productos</h1></ol>
+
+    <div class="grid-productos">
+
+        {% for id, plato in info_menu.items() %}
+        
+        <div class="card-producto">
+            
+            <img src="{{ url_for('static', filename='images/' + plato.imagen) }}" alt="{{ plato.nombre }}">
+            
+            <h2>{{ plato.nombre }}</h2>
+            
+            <p>{{ plato.descripcion }}</p>
+            
+            <span class="precio">${{ plato.precio }}</span>
+        
+        </div>
+       
+        {% endfor %}
+    
+    </div>
+
+</section>
+
+{% endblock %}

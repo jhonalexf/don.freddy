@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title> Marisquería Don Freddy </title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- Barra superior -->
+<div class="barra-top">
+  <div class="info-horario">
+    <span>MARISCOS | SERVICIO A DOMICILIO</span>
+    <span>Jueves 08h30 - 15:00 | Domingo: 08h30 - 15:00</span>
+  </div>
+  <div class="info-telefono">
+    <span>Teléfono: 096 801 7735</span>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <nav class="navbar">
+    <a href="{{ url_for('index') }}" class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-img">
+      <span class="logo-text">{{ nombre_cafeteria }}</span>
+    </a>
+    <ul class="nav-links">
+      {% if request.path != '/' %}
+      <li><a href="{{ url_for('index') }}">Inicio</a></li>
+      {% endif %}
+      <li><a href="{{ url_for('conocenos') }}">Conócenos</a></li>
+      <li><a href="{{ url_for('productos') }}">Productos</a></li>
+      <li><a href="{{ url_for('contact') }}">Comunicate</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Íconos sociales -->
+<div class="nav-icons">
+  {% if request.path == url_for('conocenos') %}
+    <a href="#"><img src="{{ url_for('static', filename='images/facebook.png') }}"><span>Facebook</span></a>
+    <a href="#"><img src="{{ url_for('static', filename='images/instagram.png') }}"><span>Instagram</span></a>
+    <a href="#" id="icono-whatsapp"><img src="{{ url_for('static', filename='images/whatsapp.png') }}"><span>Whatsapp</span></a>
+  {% elif request.path == url_for('productos') or request.path == url_for('contact') %}
+    <a href="#" id="icono-compra"><img src="{{ url_for('static', filename='images/seguro.png') }}"><span>Compra Segura</span></a>
+    <a href="#" id="icono-pagos"><img src="{{ url_for('static', filename='images/pagos.png') }}"><span>Pagos</span></a>
+  {% else %}
+    <a href="#"><img src="{{ url_for('static', filename='images/facebook.png') }}"><span>Facebook</span></a>
+    <a href="#"><img src="{{ url_for('static', filename='images/instagram.png') }}"><span>Instagram</span></a>
+    <a href="#" id="icono-whatsapp"><img src="{{ url_for('static', filename='images/whatsapp.png') }}"><span>Whatsapp</span></a>
+    <a href="#" id="icono-compra"><img src="{{ url_for('static', filename='images/seguro.png') }}"><span>Compra Segura</span></a>
+    <a href="#" id="icono-pagos"><img src="{{ url_for('static', filename='images/pagos.png') }}"><span>Pagos</span></a>
+  {% endif %}
+</div>
+
+<!-- Contenedor de mensajes -->
+<div id="mensaje-dinamico-container"></div>
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+{% if request.path == url_for('contact') %}
+<section class="ubicacion-contacto">
+  <div class="contenedor-ubicacion">
+    <h2 class="titulo-ubicacion">Nuestra ubicación</h2>
+    <div class="mapa-info">
+      <div class="mapa">
+        <iframe 
+            height="900px"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.6436784319646!2d-78.4129401!3d-0.1145174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d58e5bfea2e865%3A0x9bd110f54a8a56bd!2sParque%20Central%20La%20Capilla%20Calder%C3%B3n!5e0!3m2!1ses-419!2sec!4v1712761050329!5m2!1ses-419!2sec"
+            width="100%" 
+            style="border:0; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);" 
+            allowfullscreen 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="datos-ubicacion">
+        <p><strong>Dirección exacta:</strong> Calle José Miguel Guarderas, en la bajada de la iglesia.</p>
+        <p><strong>Referencia:</strong> Casa de dos pisos con portón verde.</p>
+        <p><strong>Horario:</strong> Martes a Viernes: <b>09:00–18:00</b> | Sábados y Domingos: <b>08:00–15:00</b></p>
+        <a href="https://wa.me/593968017735" class="boton-whatsapp" target="_blank">
+          <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp">
+          Escríbenos por WhatsApp
+        </a>
+        <div class="redes-ubicacion">
+          <a href="#"><img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+          <a href="#"><img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<footer>
+  <p>&copy; {{ nombre_cafeteria }} 2025</p>
+</footer>
+
+<!-- ✅ Aquí conectamos el script.js -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
