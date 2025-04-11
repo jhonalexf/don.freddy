@@ -11,13 +11,22 @@ body {
 
 /* --- Navbar --- */
 .navbar {
-    background-color: #718aa3;
+    position: sticky;
+    top: 0;
+    background-color: #6c839e; /* mismo color que estás usando */
+    z-index: 1000;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-}
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navbar.visible {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+
 
 .navbar .logo {
     display: flex;
@@ -967,7 +976,7 @@ button:hover {
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s ease;
+    transition: all 0.28s ease;
     opacity: 0;
     transform: translateY(-20px);
 }

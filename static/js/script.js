@@ -2,7 +2,7 @@ let lastScrollTop = 0;
 const barra = document.getElementById('barra-flotante');
 
 window.addEventListener("scroll", function () {
-    const barra = document.getElementById("barraScroll");
+    const barra = document.querySelector(".navbar");
     if (window.scrollY > 100) {
         barra.classList.add("visible");
     } else {
@@ -10,9 +10,10 @@ window.addEventListener("scroll", function () {
     }
 });
 
+
 document.addEventListener('DOMContentLoaded', () => {
-    function mostrarMensaje(id, texto) {
-        // Revisar si ya existe el mensaje y eliminarlo
+    function mostrarMensaje(id, texto, incluirBoton = false) {
+        // Eliminar mensaje anterior si existe
         const existente = document.querySelector('.mensaje-dinamico');
         if (existente) {
             existente.remove();
@@ -23,14 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
         mensaje.className = 'mensaje-dinamico visible';
         mensaje.innerText = texto;
 
-        // Insertar el mensaje en el contenedor
+        // Agregar botón si se pidió
+        if (incluirBoton) {
+            const boton = document.createElement('a');
+            boton.href = "https://wa.me/593968017735";
+            boton.className = 'boton-whatsapp';
+            boton.target = '_blank';
+            boton.innerHTML = `<img src="/static/images/whatsapp.png" alt="WhatsApp"> Escríbenos por WhatsApp`;
+            mensaje.appendChild(document.createElement('br'));
+            mensaje.appendChild(boton);
+        }
+
+        // Insertar en el contenedor
         const contenedor = document.getElementById('mensaje-dinamico-container');
         contenedor.appendChild(mensaje);
 
-        // Desaparecer después de 3 segundos
+        // Desaparecer luego de 3 segundos
         setTimeout(() => {
             mensaje.classList.remove('visible');
-            setTimeout(() => mensaje.remove(), 500); // animación
+            setTimeout(() => mensaje.remove(), 500);
         }, 3000);
     }
 
@@ -55,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (iconoWhatsapp) {
         iconoWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            mostrarMensaje('whatsapp', '📲 Escríbenos directo a WhatsApp para hacer tu pedido.');
+            mostrarMensaje('whatsapp', '📲 Escríbenos directo a WhatsApp para hacer tu pedido.', true);
         });
     }
 });
